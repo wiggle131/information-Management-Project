@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2020 at 04:04 AM
+-- Generation Time: Mar 20, 2020 at 07:46 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -61,7 +61,7 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`peripheralID`, `name`, `brand`, `quantity`) VALUES
-('0987654321', 'Corsair MX50', 'Corsair', 7),
+('0987654321', 'Corsair MX50', 'Corsair', 6),
 ('1234567890', 'Razer Death Adder', 'Razer', 6);
 
 -- --------------------------------------------------------
@@ -72,11 +72,19 @@ INSERT INTO `inventory` (`peripheralID`, `name`, `brand`, `quantity`) VALUES
 
 CREATE TABLE `item_usage` (
   `peripheralID` varchar(10) NOT NULL,
-  `playerID` varchar(10) NOT NULL,
+  `playerID` varchar(10) DEFAULT NULL,
   `Quantity` int(20) NOT NULL,
   `Date_borrowed` date NOT NULL DEFAULT current_timestamp(),
   `Date_returned` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `item_usage`
+--
+
+INSERT INTO `item_usage` (`peripheralID`, `playerID`, `Quantity`, `Date_borrowed`, `Date_returned`) VALUES
+('0987654321', NULL, 1, '2020-03-20', '2020-03-20'),
+('0987654321', NULL, 1, '2020-03-20', '2020-03-20');
 
 -- --------------------------------------------------------
 
